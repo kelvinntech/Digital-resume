@@ -31,6 +31,7 @@ st.markdown("""
         align-items: center;
         gap: 30px; 
         margin-bottom: 20px;
+        flex-wrap: wrap; /* Allows stacking on very small screens */
     }
     
     .profile-img-container {
@@ -63,7 +64,6 @@ st.markdown("""
         color: var(--text-color);
         margin: 0;
         line-height: 1.1;
-        white-space: nowrap;
     }
     
     .job-title-header {
@@ -74,6 +74,26 @@ st.markdown("""
         margin-top: 5px;
         margin-bottom: 5px;
         letter-spacing: 1px;
+    }
+    
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+        .header-flex {
+            flex-direction: column;
+            text-align: center;
+            gap: 15px;
+        }
+        .main-header {
+            font-size: 35px !important;
+            white-space: normal; /* Let name wrap on tiny phones if necessary */
+        }
+        .contact-info {
+            font-size: 1rem;
+        }
+        .profile-img-container {
+            width: 130px;
+            height: 130px;
+        }
     }
     
     .contact-info {
