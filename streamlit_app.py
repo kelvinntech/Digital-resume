@@ -1,6 +1,13 @@
 import streamlit as st
 import os
 import base64
+import asyncio
+
+# Fix for Streamlit Cloud Python 3.14+ asyncio event loop RuntimeError
+try:
+    asyncio.get_running_loop()
+except RuntimeError:
+    asyncio.set_event_loop(asyncio.new_event_loop())
 
 # Page config
 st.set_page_config(page_title="Kelvin Ufegbunem - Digital Resume", page_icon="📄", layout="wide")
